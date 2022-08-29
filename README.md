@@ -1,3 +1,5 @@
+> WARNING: This is currently outdated (Will update it soon)
+
 # SkyHelper-API
 
 ## This is modified version of [SkyHelper API](https://github.com/Altpapier/SkyHelperAPI).
