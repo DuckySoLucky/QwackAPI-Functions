@@ -17,3 +17,5 @@ function getSkyblockCalendar() {
     return ({ status: 404, reason: error });
   }
 }
+
+module.exports = { getSkyblockCalendar };

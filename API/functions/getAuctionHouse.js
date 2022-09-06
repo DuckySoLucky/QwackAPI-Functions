@@ -78,4 +78,4 @@ async function getAuctionHouse(options = {lore: null, name: null, rarity: null, 
     };
 }
 
-getAuctionHouse(options = {lore: null, name: 'Hyperion', rarity: null, category: null, bin: null, lowest_price: null, highest_price: null, user: null }).then(console.log)
+module.exports = { getAuctionHouse }

@@ -25,5 +25,3 @@ async function getBingo(uuid) {
 }
 
 module.exports = { getBingo };
-
-getBingo('thirtyvirus').then(console.log)
