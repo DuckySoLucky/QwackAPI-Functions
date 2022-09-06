@@ -1,7 +1,7 @@
 {
-  "name": "skyhelperapi",
+  "name": "qwackapi-function",
   "version": "1.0.0",
-  "description": "Modified version of Official SkyHelperAPI",
+  "description": "Functions for Modified version of Official SkyHelperAPI",
   "main": "index.js",
   "scripts": {
     "start": "node ."
@@ -14,12 +14,14 @@
   "author": "DuckySoLucky",
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.29.4",
     "axios": "^0.22.0",
     "chalk": "^4.1.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-rate-limit": "^6.3.0",
+    "lilyweight": "^2.7.0",
     "prismarine-nbt": "^1.6.0",
     "util": "^0.12.4"
   },

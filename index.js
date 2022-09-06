@@ -1,33 +1,34 @@
-// CREDIT: https://github.com/Senither/hypixel-skyblock-facade (Modified)
-// CREDIT: https://github.com/Altpapier/SkyHelperAPI 
+// ! ORIGINAL SRC: https://github.com/Altpapier/SkyHelperAPI 
 //
-// THIS IS MODIFIED VERSION OF OFFICIAL SKYHELPER API
-// THIS VERSION USES FUNCTIONS TO GET DATA INSTEAD OF WEB API
+// ! MODIFIED SRC: https://github.com/DuckySoLucky/QwackAPI
 //
-// 
-const { getFetchur } = require('./functions/fetchur')
-const { getProfile } = require('./functions/profile')
-const { getProfiles } = require('./functions/profiles')
-const refreshCollections = require('./data/refreshCollections')
-const refreshPrices = require('./data/refreshPrices')
+// ? THIS IS MODIFIED VERSION OF OFFICIAL SKYHELPER API
+// * THIS VERSION USES FUNCTIONS TO GET DATA INSTEAD OF HAVING TO HOST AN API
+//
+
+const { getFetchur } = require('./API/functions/getFetchur');
+const { getBingo } = require('./API/functions/getBingoProfile')
+const { getProfileParsed } = require('./API/functions/getProfileParsed');
+
+const refreshAuctions = require('./API/data/refreshAuctions')
+const refreshCollections = require('./API/data/refreshCollections')
+const refreshPrices = require('./API/data/refreshPrices')
 
 process.on('uncaughtException', (error) => console.log(error))
 process.on('unhandledRejection', (error) => console.log(error))
 
+refreshAuctions();
 refreshCollections()
 refreshPrices()
 
-// Examples
+// ? Examples
 
 console.log(getFetchur())
 
-getProfile('Refraction', 'Apple').then(response => {
-    console.log(response)
-})
+getProfileParsed('Refraction', 'Apple').then(console.log)
 
-getProfiles('Refraction').then(response => {
-    console.log(response)
-})
+getBingo('Refraction').then(console.log)
+
 
 
 
