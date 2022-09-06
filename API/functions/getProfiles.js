@@ -18,5 +18,3 @@ async function getProfiles(uuid) {
 }
 
 module.exports = { getProfiles }
-
-getProfiles('DeathStreeks').then(console.log)
