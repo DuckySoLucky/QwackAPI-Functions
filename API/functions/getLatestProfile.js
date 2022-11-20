@@ -17,23 +17,25 @@ async function getLatestProfile(uuid) {
         ]);
 
         const player = parseHypixel(playerRes, uuid);
-
-        if (profileRes.data.hasOwnProperty('profiles') && profileRes.data.profiles == null) return ({ status: 404, reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.` });
         
-        const result = [];
-
-        for (const profileData of profileRes.data.profiles) {
-            if (!isValidProfile(profileData.members, uuid)) continue;
-
-            result.push(profileData.members[uuid])
+        if (!profileRes.data.profiles) {
+          return {
+            status: 404,
+            reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.`,
+          };
         }
 
-        if (result.length == 0) return ({ status: 404, reason: `Found no SkyBlock profiles for a user with a UUID of '${uuid}'.` });
-
-        const respond = result.find((a) => a.selected);
         const profileData = profileRes.data.profiles.find((a) => a.selected);
+        const profile = profileData.members[uuid];
 
-        return { status: 200, profile: respond[0], profileData: profileData, playerRes: playerRes.data, player: player, uuid: uuid }
+        return {
+          status: 200,
+          profile: profile,
+          profileData: profileData,
+          playerRes: playerRes.data,
+          player: player,
+          uuid: uuid,
+        };
     } catch (error) {
         return ({ status: 404, reason: error });
     }
